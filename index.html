@@ -15,19 +15,19 @@
   <!-- (Optional) Google site verification -->
   <!-- <meta name="google-site-verification" content="YOUR-CODE-HERE" /> -->
 
-  <!-- Favicon (optional; replace the path or remove if you don't have it yet) -->
-  <link rel="shortcut icon" href="./assets/images/mini_logo2.png" type="image/x-icon" />
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="assets/images/mini_logo2.png" type="image/x-icon" />
 
-  <!-- Custom CSS (optional; keep if you have the file, otherwise remove this line) -->
-  <link rel="stylesheet" href="./assets/css/style.css" />
+  <!-- Custom CSS (main styles go in assets/css/style.css) -->
+  <link rel="stylesheet" href="assets/css/style.css" />
 
   <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
+  <!-- Minimal fallback CSS in case assets/css/style.css doesn't load -->
   <style>
-    /* Minimal safe defaults in case assets/css/style.css doesn't exist yet */
     :root { --accent:#53cdef; }
     body { font-family: 'Poppins', system-ui, -apple-system, Arial, sans-serif; margin:0; color:#222; background:#fafafa; }
     main { display:flex; gap:24px; max-width:1100px; margin:32px auto; padding:0 16px; }
@@ -57,8 +57,7 @@
     <aside class="sidebar" data-sidebar>
       <div class="sidebar-info">
         <figure class="avatar-box">
-          <!-- Replace with your own photo path if you have one -->
-          <img src="./assets/images/linkedin_prof.jfif" alt="Portrait of Mohaddeseh Esmaeili Farsani" />
+          <img src="assets/images/linkedin_prof.jfif" alt="Portrait of Mohaddeseh Esmaeili Farsani" />
         </figure>
 
         <div class="info-content">
@@ -67,12 +66,7 @@
         </div>
 
         <ul class="social-list">
-          <!-- Replace with your real email -->
           <li><a class="social-link" href="mailto:YOUR.EMAIL@EXAMPLE.COM" title="Email">Email</a></li>
-          <!-- Add/remove links as needed -->
-          <!-- <li><a class="social-link" href="https://scholar.google.com/..." target="_blank">Google Scholar</a></li> -->
-          <!-- <li><a class="social-link" href="https://github.com/USERNAME" target="_blank">GitHub</a></li> -->
-          <!-- <li><a class="social-link" href="https://www.linkedin.com/in/USERNAME" target="_blank">LinkedIn</a></li> -->
         </ul>
       </div>
     </aside>
@@ -141,25 +135,13 @@
           </p>
         </section>
       </article>
-
-      <!-- Optional: add a Publications section later
-      <article class="card">
-        <header>
-          <h2 class="h2 article-title">Publications</h2>
-        </header>
-        <section class="about-text">
-          <p>Coming soon.</p>
-        </section>
-      </article>
-      -->
-
     </div>
   </main>
 
-  <!-- (Optional) Your custom JS if you have it -->
-  <!-- <script src="./assets/js/script.js"></script> -->
+  <!-- Custom JS -->
+  <script src="assets/js/main.js" defer></script>
 
-  <!-- Ionicons (optional; remove if unused) -->
+  <!-- Ionicons -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
