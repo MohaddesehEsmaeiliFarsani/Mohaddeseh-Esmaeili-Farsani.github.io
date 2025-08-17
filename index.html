@@ -37,7 +37,7 @@
     .name { margin:12px 0 4px; font-size:24px; line-height:1.2; }
     .title { color:#666; margin:0 0 12px; }
     .social-list { list-style:none; padding:0; display:flex; gap:10px; margin:12px 0 0; }
-    .social-link { color:#222; text-decoration:none; padding:6px 8px; border-radius:8px; background:#f1f5f9; }
+    .social-link { color:#222; text-decoration:none; padding:6px 8px; border-radius:8px; background:#f1f5f9; display:flex; align-items:center; justify-content:center; }
     .article-title { font-size:22px; margin:24px 0 10px; }
     .about-text p { margin:0 0 12px; }
     .timeline { margin:10px 0 24px; }
@@ -63,36 +63,33 @@
         <div class="info-content">
           <h1 class="name" title="Mohaddeseh Esmaeili Farsani">Mohaddeseh Esmaeili Farsani</h1>
           <p class="title">Biomedical Engineering · Data Mining · ML/DL · Digital Health · Neuroscience</p>
-        </div>
 
-        <ul class="social-list">
-          <li><a class="social-link" href="mailto:YOUR.EMAIL@EXAMPLE.COM" title="Email">Email</a></li>
-        </ul>
+          <!-- Social Icons directly under name -->
+          <ul class="social-list">
+            <!-- Gmail -->
+            <li>
+              <a class="social-link" href="mailto:mohaddesesmaeilifarsani@gmail.com" title="Gmail">
+                <ion-icon name="mail-outline"></ion-icon>
+              </a>
+            </li>
+
+            <!-- Academic Email -->
+            <li>
+              <a class="social-link" href="mailto:mohaddesehesmaeilifarsani@eng.ui.ac.ir" title="Academic Email">
+                <ion-icon name="school-outline"></ion-icon>
+              </a>
+            </li>
+
+            <!-- LinkedIn -->
+            <li>
+              <a class="social-link" href="https://www.linkedin.com/in/mohaddeseh-esmaeili-farsani-43348b195" target="_blank" title="LinkedIn">
+                <ion-icon name="logo-linkedin"></ion-icon>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </aside>
-    <ul class="social-list">
-  <!-- Gmail -->
-  <li>
-    <a class="social-link" href="mailto:mohaddesesmaeilifarsani@gmail.com" title="Gmail">
-      <ion-icon name="mail-outline"></ion-icon>
-    </a>
-  </li>
-
-  <!-- Academic Email -->
-  <li>
-    <a class="social-link" href="mailto:mohaddesehesmaeilifarsani@eng.ui.ac.ir" title="Academic Email">
-      <ion-icon name="school-outline"></ion-icon>
-    </a>
-  </li>
-
-  <!-- LinkedIn -->
-  <li>
-    <a class="social-link" href="https://www.linkedin.com/in/mohaddeseh-esmaeili-farsani-43348b195" target="_blank" title="LinkedIn">
-      <ion-icon name="logo-linkedin"></ion-icon>
-    </a>
-  </li>
-</ul>
-
 
     <!-- MAIN CONTENT -->
     <div class="main-content">
