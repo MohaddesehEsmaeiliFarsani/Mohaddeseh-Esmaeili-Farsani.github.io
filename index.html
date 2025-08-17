@@ -1,85 +1,191 @@
 <!DOCTYPE html>
-<html lang="en" class="theme-dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- SEO -->
   <title>Mohaddeseh Esmaeili Farsani</title>
-  <meta name="description" content="Mohaddeseh Esmaeili Farsani | Biomedical Engineering | Data Mining & Machine Learning | Digital Health | Neuroscience" />
-  <meta name="robots" content="index, follow" />
-  <meta name="keywords" content="Mohaddeseh Esmaeili Farsani, biomedical engineering, EEG, data mining, machine learning, deep learning, digital health, neuroscience, brain functionalization, University of Isfahan" />
-
-  <!-- Favicon -->
-  <link rel="shortcut icon" href="assets/images/mini_logo2.png" type="image/x-icon" />
-
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="assets/css/style.css" />
-
-  <!-- Google Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="icon" href="assets/images/logo.png" type="image/png" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
-</head>
 
+  <style>
+    /* ====== Theme tokens ====== */
+    :root {
+      --bg: #fafafa;
+      --surface: #ffffff;
+      --surface-2: #f5f5f5;
+      --text: #1b1b22;
+      --muted: #4a4c5f;
+      --border: #e8e8ef;
+      --accent: #7c3aed;
+      --accent-strong: #6d28d9;
+      --accent-soft: rgba(124,58,237,.12);
+      --radius: 16px;
+      --shadow: 0 10px 32px rgba(0,0,0,.15);
+    }
+    html.theme-dark {
+      --bg: #0b0b10;
+      --surface: #12121a;
+      --surface-2: #171726;
+      --text: #e8e7ef;
+      --muted: #b6b4c7;
+      --border: #26263a;
+      --accent: #8b5cf6;
+      --accent-strong: #7c3aed;
+      --accent-soft: rgba(139,92,246,.16);
+      --shadow: 0 10px 32px rgba(0,0,0,.45);
+    }
+
+    /* ====== Base ====== */
+    * { box-sizing: border-box }
+    body {
+      margin: 0;
+      font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1200px 600px at 100% -10%, var(--accent-soft), transparent 70%),
+        radial-gradient(800px 500px at -10% 100%, var(--accent-soft), transparent 70%),
+        var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none }
+    a:hover { color: var(--accent-strong) }
+
+    /* ====== Layout ====== */
+    .container {
+      display: flex; gap: 24px;
+      max-width: 1100px; margin: 32px auto; padding: 0 16px;
+    }
+    .sidebar {
+      flex: 0 0 300px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: calc(var(--radius) + 2px);
+      padding: 20px;
+      box-shadow: var(--shadow);
+      height: max-content;
+      position: sticky; top: 24px;
+    }
+    .content { flex: 1; display: flex; flex-direction: column; gap: 18px }
+
+    .avatar-box img { width: 100%; border-radius: 14px; border: 1px solid var(--border) }
+    .name { margin: 12px 0 4px; font-size: 26px; line-height: 1.2 }
+    .title { margin: 0 0 14px; color: var(--muted); font-weight: 500 }
+    .social-list { list-style: none; display: flex; gap: 10px; padding: 0; margin: 12px 0 0 }
+
+    /* cards */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+    .h2,.h3 { margin: .2rem 0 .7rem }
+    .article-title, .h3 {
+      position: relative; display: inline-block; padding-bottom: 6px;
+    }
+    .article-title::after, .h3::after {
+      content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px;
+      background: linear-gradient(90deg,var(--accent),transparent);
+    }
+    .about-text p { margin: 0 0 12px; color: var(--muted) }
+    .list { margin: 0; padding-left: 18px; color: var(--muted) }
+
+    .timeline { list-style: none; padding: 0; margin: 0 }
+    .timeline-item {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px; margin: 12px 0;
+    }
+    .h4 { margin: 0 0 6px; font-size: 18px }
+
+    /* social chip */
+    .chip {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 8px; width: 36px; height: 36px;
+      border-radius: 10px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      color: var(--text);
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .chip:hover { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft) }
+
+    /* ====== Theme Switch ====== */
+    .theme-switch {
+      position: fixed; top: 18px; right: 18px; z-index: 20;
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 8px 10px; border-radius: 999px;
+      background: color-mix(in srgb, var(--surface) 92%, transparent);
+      border: 1px solid var(--border); box-shadow: var(--shadow);
+      backdrop-filter: blur(6px);
+    }
+    .theme-label { font-weight: 600; font-size: 14px; color: var(--text); opacity: .45; user-select: none }
+    html.theme-light .theme-label.light { opacity: 1 }
+    html.theme-dark .theme-label.dark { opacity: 1 }
+
+    .theme-switch-btn {
+      width: 54px; height: 28px; position: relative;
+      border-radius: 999px; border: 1px solid var(--border);
+      background: linear-gradient(180deg, var(--accent) 0%, var(--accent-strong) 100%);
+      cursor: pointer; padding: 0; outline: none;
+    }
+    .theme-switch-thumb {
+      position: absolute; top: 3px; left: 3px;
+      width: 22px; height: 22px; border-radius: 50%;
+      background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,.35);
+      transition: left .18s ease;
+    }
+    html.theme-dark .theme-switch-thumb { left: 29px }
+
+    @media (max-width:900px){
+      .container { flex-direction: column }
+      .sidebar { position: static; width: 100% }
+    }
+  </style>
+</head>
 <body>
 
-  <!-- Theme toggle switch -->
-  <div class="theme-toggle">
-    <label class="switch">
-      <input type="checkbox" id="themeToggle" />
-      <span class="slider"></span>
-    </label>
+  <!-- Theme switch -->
+  <div class="theme-switch" role="group" aria-label="Theme">
+    <span class="theme-label light">Light</span>
+    <button id="themeToggle" class="theme-switch-btn" aria-pressed="false" aria-label="Toggle dark mode">
+      <span class="theme-switch-thumb"></span>
+    </button>
+    <span class="theme-label dark">Dark</span>
   </div>
 
   <main class="container">
-
     <!-- SIDEBAR -->
-    <aside class="sidebar" data-sidebar>
+    <aside class="sidebar">
       <div class="sidebar-info">
         <figure class="avatar-box">
           <img src="assets/images/linkedin_prof.jfif" alt="Portrait of Mohaddeseh Esmaeili Farsani" />
         </figure>
-
         <div class="info-content">
-          <h1 class="name" title="Mohaddeseh Esmaeili Farsani">Mohaddeseh Esmaeili Farsani</h1>
+          <h1 class="name">Mohaddeseh Esmaeili Farsani</h1>
           <p class="title">Biomedical Engineering · Data Mining · ML/DL · Digital Health · Neuroscience</p>
+          <ul class="social-list">
+            <li><a class="chip" href="mailto:mohaddesesmaeilifarsani@gmail.com"><ion-icon name="mail-outline"></ion-icon></a></li>
+            <li><a class="chip" href="mailto:mohaddesehesmaeilifarsani@eng.ui.ac.ir"><ion-icon name="school-outline"></ion-icon></a></li>
+            <li><a class="chip" href="https://www.linkedin.com/in/mohaddeseh-esmaeili-farsani-43348b195" target="_blank"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+          </ul>
         </div>
-
-        <ul class="social-list">
-          <li><a class="social-link" href="mailto:YOUR.EMAIL@EXAMPLE.COM" title="Email">Email</a></li>
-        </ul>
       </div>
     </aside>
 
     <!-- MAIN CONTENT -->
     <div class="content">
-
-      <article class="about active card" data-page="about">
-        <header>
-          <h2 class="h2 article-title">About Me</h2>
-        </header>
-
+      <article class="about active card">
+        <header><h2 class="h2 article-title">About Me</h2></header>
         <section class="about-text">
-          <p>
-            Mohaddeseh Esmaeili Farsani earned her B.C. degree in Biomedical Engineering from the University of Isfahan and is currently pursuing her Master’s at the same university. Her research interests span data mining, machine learning, deep learning, digital health, and more recently, neuroscience and brain functionalization.
-          </p>
-          <p>
-            She first explored this domain during her undergraduate thesis, where she analyzed EEG signals to classify individuals with Schizophrenia and healthy controls. This experience sparked a lasting interest in understanding brain function through computational methods.
-          </p>
-          <p>
-            Currently, she is working on recommendation systems for COVID-19 drug therapies in healthcare. Her work integrates cutting-edge technologies in health informatics, leveraging machine learning and statistical methods to enhance clinical decision-making and support personalized treatment approaches.
-          </p>
+          <p>Mohaddeseh Esmaeili Farsani earned her B.C. degree in Biomedical Engineering from the University of Isfahan and is currently pursuing her Master’s at the same university...</p>
         </section>
       </article>
-
       <article class="card">
-        <header>
-          <h2 class="h2 article-title">Research Interests</h2>
-        </header>
+        <header><h2 class="h2 article-title">Research Interests</h2></header>
         <section class="about-text">
-          <ul>
+          <ul class="list">
             <li>Machine Learning & Deep Learning for health data</li>
             <li>EEG analysis; neuroscience & brain functionalization</li>
             <li>Digital Health & Clinical Decision Support</li>
@@ -87,45 +193,52 @@
           </ul>
         </section>
       </article>
-
       <article class="timeline card">
-        <div class="title-wrapper">
-          <h3 class="h3">Education</h3>
-        </div>
-
+        <h3 class="h3">Education</h3>
         <ol class="timeline-list">
-          <li class="timeline-item">
-            <h4 class="h4 timeline-item-title">University of Isfahan — Master’s (in progress)</h4>
-            <p class="timeline-text">Biomedical Engineering</p>
-          </li>
-
-          <li class="timeline-item">
-            <h4 class="h4 timeline-item-title">University of Isfahan — B.C.</h4>
-            <p class="timeline-text">Biomedical Engineering</p>
-            <p class="timeline-text">Undergraduate thesis: EEG-based classification of Schizophrenia vs. healthy controls</p>
-          </li>
+          <li class="timeline-item"><h4 class="h4">University of Isfahan — Master’s (in progress)</h4><p>Biomedical Engineering</p></li>
+          <li class="timeline-item"><h4 class="h4">University of Isfahan — B.C.</h4><p>Biomedical Engineering</p></li>
         </ol>
-      </article>
-
-      <article class="card">
-        <header>
-          <h2 class="h2 article-title">Current Project</h2>
-        </header>
-        <section class="about-text">
-          <p>
-            Building recommendation systems for COVID-19 drug therapies in healthcare, integrating statistical learning and machine learning to support personalized treatment and clinical decision-making.
-          </p>
-        </section>
       </article>
     </div>
   </main>
-
-  <!-- Custom JS -->
-  <script src="assets/js/main.js" defer></script>
 
   <!-- Ionicons -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
+  <!-- Theme toggle JS -->
+  <script>
+    const btn  = document.getElementById('themeToggle');
+    const root = document.documentElement;
+
+    // Apply saved theme or system
+    const saved = localStorage.getItem('theme');
+    if (saved === 'light') root.classList.add('theme-light');
+    if (saved === 'dark')  root.classList.add('theme-dark');
+
+    function isDark(){
+      return root.classList.contains('theme-dark') ||
+        (!root.classList.contains('theme-light') &&
+          matchMedia('(prefers-color-scheme: dark)').matches);
+    }
+    function updateSwitchUI(){
+      btn.setAttribute('aria-pressed', isDark());
+    }
+    updateSwitchUI();
+
+    btn.addEventListener('click', () => {
+      if (root.classList.contains('theme-dark')){
+        root.classList.remove('theme-dark');
+        root.classList.add('theme-light');
+        localStorage.setItem('theme','light');
+      } else {
+        root.classList.remove('theme-light');
+        root.classList.add('theme-dark');
+        localStorage.setItem('theme','dark');
+      }
+      updateSwitchUI();
+    });
+  </script>
 </body>
 </html>
