@@ -7,6 +7,8 @@ const saved = localStorage.getItem('theme');
 if (saved === 'light') root.classList.add('theme-light');
 if (saved === 'dark')  root.classList.add('theme-dark');
 
+
+
 // update icon based on current state
 function updateIcon(){
   const dark =
