@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="theme-dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -22,42 +22,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
-  <!-- Minimal dark fallback (only used if assets/css/style.css fails to load) -->
+  <!-- Minimal fallback (kept simple) -->
   <style>
-    :root{
-      --bg:#0b0b10; --surface:#12121a; --surface-2:#171726;
-      --text:#e8e7ef; --muted:#b6b4c7; --border:#26263a;
-      --accent:#8b5cf6; --accent-strong:#7c3aed; --accent-soft:rgba(139,92,246,.16);
-    }
-    html,body{height:100%}
-    body{
-      margin:0; font-family:'Poppins',system-ui,-apple-system,Segoe UI,Arial,sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(1200px 600px at 100% -10%, var(--accent-soft), transparent 70%),
-        radial-gradient(800px 500px at -10% 100%, var(--accent-soft), transparent 70%),
-        var(--bg);
-    }
-    a{color:var(--accent); text-decoration:none} a:hover{color:var(--accent-strong)}
-    main{display:flex; gap:24px; max-width:1100px; margin:32px auto; padding:0 16px}
-    .sidebar{flex:0 0 300px; background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:20px; box-shadow:0 10px 32px rgba(0,0,0,.45); height:max-content; position:sticky; top:24px}
-    .main-content{flex:1}
-    .avatar-box img{width:100%; border-radius:14px; border:1px solid var(--border)}
-    .name{margin:12px 0 4px; font-size:26px; line-height:1.2}
-    .title{margin:0 0 14px; color:var(--muted)}
-    .social-list{list-style:none; display:flex; gap:10px; padding:0; margin:12px 0 0}
-    .social-link{display:flex; align-items:center; justify-content:center; padding:8px; width:36px; height:36px; border-radius:10px; background:var(--surface-2); border:1px solid var(--border); color:var(--text)}
-    .social-link:hover{border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-soft)}
-    .card{background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:18px; box-shadow:0 10px 32px rgba(0,0,0,.45)}
-    .article-title{font-size:22px; margin:24px 0 10px; position:relative; padding-bottom:6px}
-    .article-title::after{content:""; position:absolute; left:0; right:0; bottom:0; height:2px; background:linear-gradient(90deg,var(--accent),transparent)}
-    .about-text p{margin:0 0 12px; color:var(--muted)}
-    .timeline{margin:10px 0 24px}
-    .timeline-list{list-style:none; padding:0; margin:0}
-    .timeline-item{background:var(--surface-2); border:1px solid var(--border); border-radius:12px; padding:14px; margin:12px 0}
-    .h4{margin:0 0 6px; font-size:18px}
-    .theme-toggle{position:fixed; right:18px; bottom:18px; z-index:10; border:1px solid var(--border); background:var(--surface); color:var(--text); border-radius:999px; padding:10px 12px; cursor:pointer; box-shadow:0 10px 32px rgba(0,0,0,.45)}
-    .theme-toggle:hover{border-color:var(--accent)}
+    :root { --accent:#8b5cf6 }
+    body { font-family:'Poppins',system-ui,-apple-system,Segoe UI,Arial,sans-serif; margin:0 }
+    main { display:flex; gap:24px; max-width:1100px; margin:32px auto; padding:0 16px }
+    .sidebar { flex:0 0 300px }
   </style>
 </head>
 
@@ -79,20 +49,20 @@
           <ul class="social-list">
             <!-- Gmail -->
             <li>
-              <a class="social-link" href="mailto:mohaddesesmaeilifarsani@gmail.com" title="Gmail">
-                <ion-icon name="mail-outline"></ion-icon>
+              <a class="social-link" href="mailto:mohaddesesmaeilifarsani@gmail.com" title="Gmail" aria-label="Gmail">
+                <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
               </a>
             </li>
             <!-- Academic Email -->
             <li>
-              <a class="social-link" href="mailto:mohaddesehesmaeilifarsani@eng.ui.ac.ir" title="Academic Email">
-                <ion-icon name="school-outline"></ion-icon>
+              <a class="social-link" href="mailto:mohaddesehesmaeilifarsani@eng.ui.ac.ir" title="Academic Email" aria-label="Academic Email">
+                <ion-icon name="school-outline" aria-hidden="true"></ion-icon>
               </a>
             </li>
             <!-- LinkedIn -->
             <li>
-              <a class="social-link" href="https://www.linkedin.com/in/mohaddeseh-esmaeili-farsani-43348b195" target="_blank" title="LinkedIn">
-                <ion-icon name="logo-linkedin"></ion-icon>
+              <a class="social-link" href="https://www.linkedin.com/in/mohaddeseh-esmaeili-farsani-43348b195" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn">
+                <ion-icon name="logo-linkedin" aria-hidden="true"></ion-icon>
               </a>
             </li>
           </ul>
@@ -167,13 +137,13 @@
     </div>
   </main>
 
-  <!-- Theme toggle button -->
-  <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀</button>
+  <!-- Toggle button (works with your JS/CSS) -->
+  <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">☾</button>
 
-  <!-- Your JS (handles theme toggle/localStorage) -->
+  <!-- JS -->
   <script src="assets/js/main.js" defer></script>
 
-  <!-- Ionicons for icons -->
+  <!-- Ionicons -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
