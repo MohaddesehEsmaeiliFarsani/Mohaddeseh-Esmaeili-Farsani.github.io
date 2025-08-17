@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" class="theme-dark">
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -12,13 +11,10 @@
   <meta name="robots" content="index, follow" />
   <meta name="keywords" content="Mohaddeseh Esmaeili Farsani, biomedical engineering, EEG, data mining, machine learning, deep learning, digital health, neuroscience, brain functionalization, University of Isfahan" />
 
-  <!-- (Optional) Google site verification -->
-  <!-- <meta name="google-site-verification" content="YOUR-CODE-HERE" /> -->
-
   <!-- Favicon -->
   <link rel="icon" href="assets/images/logo.png" type="image/png" />
 
-  <!-- Custom CSS (main styles go in assets/css/style.css) -->
+  <!-- Main CSS -->
   <link rel="stylesheet" href="assets/css/style.css" />
 
   <!-- Google Font -->
@@ -26,33 +22,48 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
-  <!-- Minimal fallback CSS in case assets/css/style.css doesn't load -->
+  <!-- Minimal dark fallback (only used if assets/css/style.css fails to load) -->
   <style>
-    :root { --accent:#53cdef; }
-    body { font-family: 'Poppins', system-ui, -apple-system, Arial, sans-serif; margin:0; color:#222; background:#fafafa; }
-    main { display:flex; gap:24px; max-width:1100px; margin:32px auto; padding:0 16px; }
-    .sidebar { flex:0 0 280px; background:#fff; border-radius:16px; padding:20px; box-shadow:0 6px 20px rgba(0,0,0,.06); }
-    .main-content { flex:1; }
-    .avatar-box img { width:100%; border-radius:12px; }
-    .name { margin:12px 0 4px; font-size:24px; line-height:1.2; }
-    .title { color:#666; margin:0 0 12px; }
-    .social-list { list-style:none; padding:0; display:flex; gap:10px; margin:12px 0 0; }
-    .social-link { color:#222; text-decoration:none; padding:6px 8px; border-radius:8px; background:#f1f5f9; display:flex; align-items:center; justify-content:center; }
-    .article-title { font-size:22px; margin:24px 0 10px; }
-    .about-text p { margin:0 0 12px; }
-    .timeline { margin:10px 0 24px; }
-    .timeline-list { list-style:none; padding:0; margin:0; }
-    .timeline-item { background:#fff; border-radius:12px; padding:16px; margin:12px 0; box-shadow:0 6px 20px rgba(0,0,0,.06); }
-    .h4 { margin:0 0 6px; font-size:18px; }
-    a { color:var(--accent); text-decoration:none; }
-    .card { background:#fff; border-radius:12px; padding:16px; box-shadow:0 6px 20px rgba(0,0,0,.06); }
+    :root{
+      --bg:#0b0b10; --surface:#12121a; --surface-2:#171726;
+      --text:#e8e7ef; --muted:#b6b4c7; --border:#26263a;
+      --accent:#8b5cf6; --accent-strong:#7c3aed; --accent-soft:rgba(139,92,246,.16);
+    }
+    html,body{height:100%}
+    body{
+      margin:0; font-family:'Poppins',system-ui,-apple-system,Segoe UI,Arial,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 100% -10%, var(--accent-soft), transparent 70%),
+        radial-gradient(800px 500px at -10% 100%, var(--accent-soft), transparent 70%),
+        var(--bg);
+    }
+    a{color:var(--accent); text-decoration:none} a:hover{color:var(--accent-strong)}
+    main{display:flex; gap:24px; max-width:1100px; margin:32px auto; padding:0 16px}
+    .sidebar{flex:0 0 300px; background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:20px; box-shadow:0 10px 32px rgba(0,0,0,.45); height:max-content; position:sticky; top:24px}
+    .main-content{flex:1}
+    .avatar-box img{width:100%; border-radius:14px; border:1px solid var(--border)}
+    .name{margin:12px 0 4px; font-size:26px; line-height:1.2}
+    .title{margin:0 0 14px; color:var(--muted)}
+    .social-list{list-style:none; display:flex; gap:10px; padding:0; margin:12px 0 0}
+    .social-link{display:flex; align-items:center; justify-content:center; padding:8px; width:36px; height:36px; border-radius:10px; background:var(--surface-2); border:1px solid var(--border); color:var(--text)}
+    .social-link:hover{border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-soft)}
+    .card{background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:18px; box-shadow:0 10px 32px rgba(0,0,0,.45)}
+    .article-title{font-size:22px; margin:24px 0 10px; position:relative; padding-bottom:6px}
+    .article-title::after{content:""; position:absolute; left:0; right:0; bottom:0; height:2px; background:linear-gradient(90deg,var(--accent),transparent)}
+    .about-text p{margin:0 0 12px; color:var(--muted)}
+    .timeline{margin:10px 0 24px}
+    .timeline-list{list-style:none; padding:0; margin:0}
+    .timeline-item{background:var(--surface-2); border:1px solid var(--border); border-radius:12px; padding:14px; margin:12px 0}
+    .h4{margin:0 0 6px; font-size:18px}
+    .theme-toggle{position:fixed; right:18px; bottom:18px; z-index:10; border:1px solid var(--border); background:var(--surface); color:var(--text); border-radius:999px; padding:10px 12px; cursor:pointer; box-shadow:0 10px 32px rgba(0,0,0,.45)}
+    .theme-toggle:hover{border-color:var(--accent)}
   </style>
 </head>
 
 <body>
 
   <main>
-
     <!-- SIDEBAR -->
     <aside class="sidebar" data-sidebar>
       <div class="sidebar-info">
@@ -64,7 +75,7 @@
           <h1 class="name" title="Mohaddeseh Esmaeili Farsani">Mohaddeseh Esmaeili Farsani</h1>
           <p class="title">Biomedical Engineering · Data Mining · ML/DL · Digital Health · Neuroscience</p>
 
-          <!-- Social Icons directly under name -->
+          <!-- Social icons under name -->
           <ul class="social-list">
             <!-- Gmail -->
             <li>
@@ -72,14 +83,12 @@
                 <ion-icon name="mail-outline"></ion-icon>
               </a>
             </li>
-
             <!-- Academic Email -->
             <li>
               <a class="social-link" href="mailto:mohaddesehesmaeilifarsani@eng.ui.ac.ir" title="Academic Email">
                 <ion-icon name="school-outline"></ion-icon>
               </a>
             </li>
-
             <!-- LinkedIn -->
             <li>
               <a class="social-link" href="https://www.linkedin.com/in/mohaddeseh-esmaeili-farsani-43348b195" target="_blank" title="LinkedIn">
@@ -158,12 +167,14 @@
     </div>
   </main>
 
-  <!-- Custom JS -->
+  <!-- Theme toggle button -->
+  <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀</button>
+
+  <!-- Your JS (handles theme toggle/localStorage) -->
   <script src="assets/js/main.js" defer></script>
 
-  <!-- Ionicons -->
+  <!-- Ionicons for icons -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
 </body>
 </html>
