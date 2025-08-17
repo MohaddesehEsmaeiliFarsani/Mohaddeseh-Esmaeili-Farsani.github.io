@@ -114,18 +114,33 @@ a:hover{ color:var(--accent-strong) }
 }
 .h4{ margin:0 0 6px; font-size:18px }
 
-/* theme toggle button */
-.theme-toggle{
-  position:fixed; right:18px; bottom:18px; z-index:10;
-  border:1px solid var(--border);
-  background:var(--surface);
-  color:var(--text);
-  border-radius:999px;
-  padding:10px 12px;
-  cursor:pointer;
-  box-shadow:var(--shadow);
+/* ====== Theme Switch (Light/Dark) ====== */
+.theme-switch{
+  position: fixed;
+  top: 18px; right: 18px; z-index: 20;
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 8px 10px; border-radius: 999px;
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  border: 1px solid var(--border); box-shadow: var(--shadow);
+  backdrop-filter: blur(6px);
 }
-.theme-toggle:hover{ border-color:var(--accent) }
+.theme-label{ font-weight: 600; font-size: 14px; color: var(--text); opacity: .45; user-select: none }
+html.theme-light .theme-label.light{ opacity: 1 }
+html.theme-dark  .theme-label.dark{  opacity: 1 }
+
+.theme-switch-btn{
+  width: 54px; height: 28px; position: relative;
+  border-radius: 999px; border: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--accent) 0%, var(--accent-strong) 100%);
+  cursor: pointer; padding: 0; outline: none;
+}
+.theme-switch-thumb{
+  position: absolute; top: 3px; left: 3px;
+  width: 22px; height: 22px; border-radius: 50%;
+  background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,.35);
+  transition: left .18s ease;
+}
+html.theme-dark .theme-switch-thumb{ left: 29px }
 
 /* responsive */
 @media (max-width:900px){
