@@ -1,211 +1,131 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="theme-dark">
 <head>
   <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
   <title>Mohaddeseh Esmaeili Farsani</title>
+  <meta name="description" content="Mohaddeseh Esmaeili Farsani | Biomedical Engineering | Data Mining & Machine Learning | Digital Health | Neuroscience" />
+  <meta name="robots" content="index, follow" />
+  <meta name="keywords" content="Mohaddeseh Esmaeili Farsani, biomedical engineering, EEG, data mining, machine learning, deep learning, digital health, neuroscience, brain functionalization, University of Isfahan" />
 
-  <!-- Google Fonts -->
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="assets/images/mini_logo2.png" type="image/x-icon" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
-
-  <style>
-    /* ====== Theme tokens (defaults to dark) ====== */
-    :root {
-      --bg:#0b0b10;
-      --surface:#12121a;
-      --surface-2:#171726;
-      --text:#e8e7ef;
-      --muted:#b6b4c7;
-      --border:#26263a;
-      --accent:#8b5cf6;
-      --accent-strong:#7c3aed;
-      --accent-soft: rgba(139,92,246,.16);
-      --radius:16px;
-      --shadow: 0 10px 32px rgba(0,0,0,.45);
-    }
-
-    /* DARK MODE */
-    html.theme-dark {
-      --bg:#0b0b10;
-      --surface:#12121a;
-      --surface-2:#171726;
-      --text:#e8e7ef;
-      --muted:#b6b4c7;
-      --border:#26263a;
-      --accent:#8b5cf6;
-      --accent-strong:#7c3aed;
-      --accent-soft: rgba(139,92,246,.16);
-    }
-
-    /* LIGHT MODE */
-    html.theme-light {
-      --bg:#fafafa;
-      --surface:#ffffff;
-      --surface-2:#ffffff;
-      --text:#1b1b22;
-      --muted:#4a4c5f;
-      --border:#e8e8ef;
-      --accent:#7c3aed;
-      --accent-strong:#6d28d9;
-      --accent-soft: rgba(124,58,237,.12);
-    }
-
-    /* ====== Base ====== */
-    *{ box-sizing:border-box }
-    html,body{ height:100% }
-    body{
-      margin:0;
-      font-family:'Poppins',system-ui,-apple-system,Segoe UI,Arial,sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(1200px 600px at 100% -10%, var(--accent-soft), transparent 70%),
-        radial-gradient(800px 500px at -10% 100%, var(--accent-soft), transparent 70%),
-        var(--bg);
-      transition: background .3s, color .3s;
-    }
-    a{ color:var(--accent); text-decoration:none }
-    a:hover{ color:var(--accent-strong) }
-
-    /* ====== Layout ====== */
-    .container{
-      display:flex; gap:24px;
-      max-width:1100px; margin:32px auto; padding:0 16px;
-    }
-    .sidebar{
-      flex:0 0 300px;
-      background:var(--surface);
-      border:1px solid var(--border);
-      border-radius:calc(var(--radius) + 2px);
-      padding:20px;
-      box-shadow:var(--shadow);
-      height:max-content;
-    }
-    .content{ flex:1; display:flex; flex-direction:column; gap:18px }
-
-    .avatar-box img{
-      width:100%; border-radius:14px; border:1px solid var(--border);
-    }
-    .name{ margin:12px 0 4px; font-size:26px; line-height:1.2 }
-    .title{ margin:0 0 14px; color:var(--muted); font-weight:500 }
-    .social-list{ list-style:none; display:flex; gap:10px; padding:0; margin:12px 0 0 }
-
-    /* chips */
-    .chip{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:8px 12px; border-radius:999px;
-      background:var(--surface-2);
-      border:1px solid var(--border);
-      color:var(--text);
-      transition: box-shadow .2s, border-color .2s, transform .05s;
-    }
-    .chip:hover{ border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-soft) }
-
-    /* cards */
-    .card{
-      background:var(--surface);
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      padding:18px;
-      box-shadow:var(--shadow);
-      transition: background .3s, border .3s;
-    }
-    .article-title{font-size:22px;margin:24px 0 10px;position:relative;padding-bottom:6px}
-    .article-title::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:linear-gradient(90deg,var(--accent),transparent)}
-    .about-text p{ margin:0 0 12px; color:var(--muted) }
-    .timeline-item{ background:var(--surface-2); border:1px solid var(--border); border-radius:12px; padding:14px; margin:12px 0 }
-
-    /* ====== Theme Switch ====== */
-    .theme-switch{
-      position: fixed;
-      top: 18px; right: 18px; z-index: 20;
-      display: inline-flex; align-items: center; gap: 10px;
-      padding: 8px 10px; border-radius: 999px;
-      background: color-mix(in srgb, var(--surface) 92%, transparent);
-      border: 1px solid var(--border); box-shadow: var(--shadow);
-      backdrop-filter: blur(6px);
-    }
-    .theme-label{ font-weight:600; font-size:14px; color:var(--text); opacity:.45; user-select:none }
-    html.theme-light .theme-label.light{ opacity:1 }
-    html.theme-dark .theme-label.dark{ opacity:1 }
-
-    .theme-switch-btn{
-      width:54px; height:28px; position:relative;
-      border-radius:999px; border:1px solid var(--border);
-      background: linear-gradient(180deg, var(--accent) 0%, var(--accent-strong) 100%);
-      cursor:pointer; padding:0; outline:none;
-    }
-    .theme-switch-thumb{
-      position:absolute; top:3px; left:3px;
-      width:22px; height:22px; border-radius:50%;
-      background:#fff; box-shadow:0 2px 8px rgba(0,0,0,.35);
-      transition:left .18s ease;
-    }
-    html.theme-dark .theme-switch-thumb{ left:29px }
-  </style>
 </head>
+
 <body>
 
-  <!-- Theme switch -->
-  <div class="theme-switch">
-    <span class="theme-label light">Light</span>
-    <button id="themeToggle" class="theme-switch-btn" aria-pressed="false">
-      <span class="theme-switch-thumb"></span>
-    </button>
-    <span class="theme-label dark">Dark</span>
+  <!-- Theme toggle switch -->
+  <div class="theme-toggle">
+    <label class="switch">
+      <input type="checkbox" id="themeToggle" />
+      <span class="slider"></span>
+    </label>
   </div>
 
   <main class="container">
-    <aside class="sidebar">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" data-sidebar>
       <div class="sidebar-info">
         <figure class="avatar-box">
           <img src="assets/images/linkedin_prof.jfif" alt="Portrait of Mohaddeseh Esmaeili Farsani" />
         </figure>
+
         <div class="info-content">
-          <h1 class="name">Mohaddeseh Esmaeili Farsani</h1>
+          <h1 class="name" title="Mohaddeseh Esmaeili Farsani">Mohaddeseh Esmaeili Farsani</h1>
           <p class="title">Biomedical Engineering · Data Mining · ML/DL · Digital Health · Neuroscience</p>
-          <ul class="social-list">
-            <li><a class="chip" href="mailto:mohaddesesmaeilifarsani@gmail.com"><ion-icon name="mail-outline"></ion-icon></a></li>
-            <li><a class="chip" href="mailto:mohaddesehesmaeilifarsani@eng.ui.ac.ir"><ion-icon name="school-outline"></ion-icon></a></li>
-            <li><a class="chip" href="https://www.linkedin.com/in/mohaddeseh-esmaeili-farsani-43348b195" target="_blank"><ion-icon name="logo-linkedin"></ion-icon></a></li>
-          </ul>
         </div>
+
+        <ul class="social-list">
+          <li><a class="social-link" href="mailto:YOUR.EMAIL@EXAMPLE.COM" title="Email">Email</a></li>
+        </ul>
       </div>
     </aside>
 
+    <!-- MAIN CONTENT -->
     <div class="content">
-      <article class="card"><h2 class="article-title">About Me</h2><p class="about-text">…</p></article>
-      <article class="card"><h2 class="article-title">Research Interests</h2><ul><li>ML/DL</li><li>EEG</li></ul></article>
+
+      <article class="about active card" data-page="about">
+        <header>
+          <h2 class="h2 article-title">About Me</h2>
+        </header>
+
+        <section class="about-text">
+          <p>
+            Mohaddeseh Esmaeili Farsani earned her B.C. degree in Biomedical Engineering from the University of Isfahan and is currently pursuing her Master’s at the same university. Her research interests span data mining, machine learning, deep learning, digital health, and more recently, neuroscience and brain functionalization.
+          </p>
+          <p>
+            She first explored this domain during her undergraduate thesis, where she analyzed EEG signals to classify individuals with Schizophrenia and healthy controls. This experience sparked a lasting interest in understanding brain function through computational methods.
+          </p>
+          <p>
+            Currently, she is working on recommendation systems for COVID-19 drug therapies in healthcare. Her work integrates cutting-edge technologies in health informatics, leveraging machine learning and statistical methods to enhance clinical decision-making and support personalized treatment approaches.
+          </p>
+        </section>
+      </article>
+
+      <article class="card">
+        <header>
+          <h2 class="h2 article-title">Research Interests</h2>
+        </header>
+        <section class="about-text">
+          <ul>
+            <li>Machine Learning & Deep Learning for health data</li>
+            <li>EEG analysis; neuroscience & brain functionalization</li>
+            <li>Digital Health & Clinical Decision Support</li>
+            <li>Data Mining, Feature Engineering, and Predictive Modeling</li>
+          </ul>
+        </section>
+      </article>
+
+      <article class="timeline card">
+        <div class="title-wrapper">
+          <h3 class="h3">Education</h3>
+        </div>
+
+        <ol class="timeline-list">
+          <li class="timeline-item">
+            <h4 class="h4 timeline-item-title">University of Isfahan — Master’s (in progress)</h4>
+            <p class="timeline-text">Biomedical Engineering</p>
+          </li>
+
+          <li class="timeline-item">
+            <h4 class="h4 timeline-item-title">University of Isfahan — B.C.</h4>
+            <p class="timeline-text">Biomedical Engineering</p>
+            <p class="timeline-text">Undergraduate thesis: EEG-based classification of Schizophrenia vs. healthy controls</p>
+          </li>
+        </ol>
+      </article>
+
+      <article class="card">
+        <header>
+          <h2 class="h2 article-title">Current Project</h2>
+        </header>
+        <section class="about-text">
+          <p>
+            Building recommendation systems for COVID-19 drug therapies in healthcare, integrating statistical learning and machine learning to support personalized treatment and clinical decision-making.
+          </p>
+        </section>
+      </article>
     </div>
   </main>
 
-  <!-- JS toggle -->
-  <script>
-    const btn  = document.getElementById('themeToggle');
-    const root = document.documentElement;
-    const saved = localStorage.getItem('theme');
-    if (saved === 'light') root.classList.add('theme-light');
-    if (saved === 'dark') root.classList.add('theme-dark');
-
-    function isDark(){
-      return root.classList.contains('theme-dark') ||
-        (!root.classList.contains('theme-light') &&
-        matchMedia('(prefers-color-scheme: dark)').matches);
-    }
-    function updateSwitch(){ btn.setAttribute('aria-pressed', String(isDark())); }
-    updateSwitch();
-
-    btn.addEventListener('click', () => {
-      if (root.classList.contains('theme-dark')) {
-        root.classList.remove('theme-dark'); root.classList.add('theme-light'); localStorage.setItem('theme','light');
-      } else {
-        root.classList.remove('theme-light'); root.classList.add('theme-dark'); localStorage.setItem('theme','dark');
-      }
-      updateSwitch();
-    });
-  </script>
+  <!-- Custom JS -->
+  <script src="assets/js/main.js" defer></script>
 
   <!-- Ionicons -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
 </body>
 </html>
